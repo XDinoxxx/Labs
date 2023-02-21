@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторная работа 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>         
+            <img src="ui/logojs.png" alt="картинка" class="logo"/>
+            JavaScript
+        </nav>
+    </header>
+    
+    <ul>
+        <nav>
+            <li><a href="#1">История создания</a></li>
+            <li><a href="#2">Краткий обзор языка</a></li>
+            <li><a href="#3">Примеры кода</a></li>
+        </nav>
+    </ul>
+    <h1 id="1" class="_header">История создания</h1>
+    <section>
+        <div class="maintext">
+            <p>
+                События, в результате которых появился JavaScript, разворачивались в течение шести месяцев, 
+                с мая по декабрь 1995 года. Компания Netscape Communications уверенно прокладывала себе путь в области 
+                веб-технологий. Её браузер Netscape Communicator успешно отвоевывал позиции у NCSA Mosaic, первого 
+                популярного веб-браузера. Netscape была создана людьми, принимавшими участие в разработке Mosaic в ранние 90-е. 
+                Теперь, с деньгами и независимостью, у них было всё необходимое для поиска способов дальнейшего развития веб-технологий. 
+                Именно это послужило толчком для рождения JavaScript.
+            </p>
+        </div>
+        <div class="maintext">
+            <p>
+                И тут в нашей истории появляется Брендан Айк, отец JavaScript. 
+                Айк должен был разработать для Netscape «Scheme для браузера». 
+                Scheme — это динамичный, мощный и функциональный диалект языка программирования Lisp с максимально упрощённым
+                синтаксисом. Вебу требовалось что-то подобное: простое в освоении, динамичное, немногословное и мощное. 
+                Айк не стал упускать шанса поработать над тем, что ему нравилось, и присоединился к команде.
+            </p>
+        </div>
+        <div>
+            <p class="image"><img src="ui/people.png" alt="картинка"></p>
+        </div>
+
+        <div>
+           
+            <table>
+                <caption><h2>Численность населения Беларуси</h2></caption>
+                <tr>
+                    <td></td>
+                    <td>мужчины и <br> женщины</td>
+                    <td>мужчины</td>
+                    <td>женщины</td>
+                </tr>
+                <tr>
+                    <td>Республика Беларусь</td>
+                    <td>9 255 524</td>
+                    <td>4 278 488</td>
+                    <td>4 977 036</td>
+                </tr>
+                <tr>
+                    <td>Брестсткая область</td>
+                    <td>1 324 027</td>
+                    <td>614 590</td>
+                    <td>709 437</td>
+                </tr>
+                <tr>
+                    <td>Витебская область</td>
+                    <td>1 103 833</td>
+                    <td>506 496</td>
+                    <td>597 337</td>
+                </tr>
+                <tr>
+                    <td>Гомельская область</td>
+                    <td>1 357 897</td>
+                    <td>627 555</td>
+                    <td>730 342</td>
+                </tr>
+                <tr>
+                    <td>Гродненская область</td>
+                    <td>1 006 614</td>
+                    <td>466 773</td>
+                    <td>539 841</td>
+                </tr>
+                <tr>
+                    <td>Минская область</td>
+                    <td>1 465 755</td>
+                    <td>686 576</td>
+                    <td>779 179</td>
+                </tr>
+                <tr>
+                    <td>Могилёвская область</td>
+                    <td>1 000 845</td>
+                    <td>465 699</td>
+                    <td>535 146</td>
+                </tr>
+            </table>
+
+        </div>
+    </section>
+
+
+    <h1 id="2" class="_header">Краткий обзор языка</h1>
+    <section>
+        <div class="maintext">
+            <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript">Основная документация по JavaScript</a>
+
+            <p>Стандарные встроенные объекты</p>
+            <ol>
+                <li>Array</li>
+                <li>Boolean</li>
+                <li>Date</li>
+                <li>Function</li>
+                <li>JSON</li>
+                <li>Math</li>
+            </ol>
+            <p>Выражения и операторы</p>
+            <ul class="ul">
+                <li>instanceof</li>
+                <li>typeof</li>
+                <li>new</li>
+                <li>this</li> 
+            </ul>
+            <p>Инструкции и объявления</p>
+            <ul>
+                <li>do-while</li>
+                <li>for-in</li>
+                <li>for-of</li>
+                <li>try-catch</li>
+                <li>let</li>
+                <li>var</li>
+                <li>const</li>
+                <li>if-else</li>
+                <li>switch</li>
+            </ul>
+        </div>
+    </section>
+
+
+
+    <footer>
+        <h1 id="3" class="_header">Примеры кода</h1>
+        <section class="code">
+            <object class="blue">let</object> <object class="skyblue">output</object> = <object class="orange">[]</object>;<br>
+            <object>for</object> <object class="orange">(</object><object class="blue">let</object> <object class="skyblue">item</object> <object class="blue">of</object> <object class="skyblue">input</object><object class="orange">) {</object><br>
+            <object class="blue">let</object> <object class="skyblue">newItem</object> = <object class="yellow">oodlify</object><object>(</object><object class="skyblue"> item</object><object class="orange">}</object>;<br>
+            <object class="skyblue">output</object>.<object class="yellow">push</object><object>(</object><object  class="skyblue">newItem</object><object class="orange">}</object>;<br>
+            <object>}</object>
+            <p class="imgcode"><img src="ui/code.png" alt="картинка"></p>
+        </section>
+    </footer>
+
+    <hr>
+        <span class="total"><b><i><u> 30 тегов и больше 40 свойств </u></i></b></span>
+        <table>
+            <td>
+                <ol>
+                    html теги
+                    <li>html</li>
+                    <li>head</li>
+                    <li>title</li>
+                    <li>meta</li>
+                    <li>link</li>
+                    <li>body</li>
+                    <li>header</li>
+                    <li>nav</li>
+                    <li>img</li>
+                    <li>ul</li>
+                    <li>li</li>
+                    <li>a</li>
+                    <li>h1</li>
+                    <li>section</li>
+                    <li>p</li>
+                    <li>div</li>
+                    <li>table</li>
+                    <li>caption</li>
+                    <li>td</li>
+                    <li>tr</li>
+                    <li>h2</li>
+                    <li>ol</li>
+                    <li>footer</li>
+                    <li>object</li>
+                    <li>span</li>
+                    <li>b</li>
+                    <li>i</li>
+                    <li>hr</li>
+                    <li>br</li>
+                    <li>u</li>
+                </ol>
+            </td>
+            <td>
+                CSS свойства
+                <ol>
+                    <li>line-height</li> 
+                    <li>-webkit-text-size-adjust</li>
+                    <li>margin</li>
+                    <li>display</li>
+                    <li>font-size</li>
+                    <li>box-sizing</li> 
+                    <li>height</li> 
+                    <li>overflow</li>
+                    <li>font-family</li>
+                    <li>background-color</li>
+                    <li>border-bottom</li> 
+                    <li>text-decoration</li>
+                    <li>font-weight</li>
+                    <li>line-height</li>
+                    <li>relative</li>
+                    <li>vertical-align</li>
+                    <li>bottom</li>
+                    <li>top</li>
+                    <li>border-style</li>
+                    <li>text-transform</li>
+                    <li>-webkit-appearance</li>
+                    <li>border-style</li>
+                    <li>padding</li>
+                    <li>box-sizing</li>
+                    <li>color</li>
+                    <li>max-width</li>
+                    <li>white-space</li>
+                    <li>vertical-align</li>
+                    <li>height</li>
+                    <li>-webkit-appearance</li>
+                    <li>outline-offset</li>
+                    <li>font</li>
+                    <li>margin-left</li>
+                    <li>margin-right</li>
+                    <li>text-align</li>
+                    <li>width</li>
+                    <li>margin-top</li>
+                    <li>margin-bottom</li>
+                    <li>list-style-image</li>
+                    <li>border</li>
+                </ol>
+            </td>
+        </table>
+    <hr>
+
+        
+        
+</body>
+</html>
