@@ -1,11 +1,15 @@
 /* Флексы */
 
 .sector{
+    width: 500px;
     display: flex;
+    flex-wrap: wrap;
+    gap: 1px;
 }
 
 .block{
     background-color: #000;
+    flex-wrap: wrap;
     width: 50px;
     height: 50px;
 }
@@ -20,8 +24,10 @@
 /* Гриды */
 .gSector{
     display: grid;
-    grid-template-columns: 50px 50px 50px 50px 50px 50px 50px 50px 50px;
+    grid-template-columns: repeat(9,50px);
+    gap: 1px;
 }
+
 
 .gBlock{
     width: 50px;
@@ -40,6 +46,7 @@
     .sector{
         justify-content: center;
         align-items: center;
+        margin: auto;
     }
     .gSector{
         justify-content: center;
