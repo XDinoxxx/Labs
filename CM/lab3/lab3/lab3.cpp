@@ -32,7 +32,7 @@ void newtonMethod() {
     cout << "Погрешность: " << abs(fx) << endl;
 }
 
-double chord_method(double a, double b, double eps) {
+void chord_method(double a, double b, double eps) {
     double fa = f(a);
     double fb = f(b);
     double x = a - fa * (b - a) / (fb - fa);
@@ -51,8 +51,9 @@ double chord_method(double a, double b, double eps) {
         fx = f(x);
         iter++;
     }
+    cout << "Корень уравнения: " << x << endl;
     cout << "Число итераций: " << iter << endl;
-    return x;
+    cout << "Погрешность: " << abs(fx) << endl;
 }
 
 int main() {
@@ -65,8 +66,7 @@ int main() {
 
     cout << "Метод хорд" << endl;
 
-    double root = chord_method(a, b, eps);
-    cout << "Корень: " << root << endl;
+    chord_method(a, b, eps);
 
     cout << endl;
 
