@@ -32,34 +32,39 @@ double df2_dy(double x, double y) {
     return 1;
 }
 
-
-
 void newtonMethod() {
-    double x = 1, y = 1; // Начальное приближение
-    double eps = 0.001; // Точность решения
-    int n = 0; // Число итераций
-    double dx, dy; // Инкремент
-    double err; // Погрешность
+    double x = 0, y = 1;
+    int counter = 0;
+    double dx, dy;
 
-    do {
-        double J = df1_dx(x, y) * df2_dy(x, y) - df2_dx(x, y) * df1_dy(x, y); // Вычисляем якобиан
-        dx = (-f2(x, y) * df1_dy(x, y) + f1(x, y) * df2_dy(x, y)) / J; // Вычисляем инкремент для x
-        dy = (f2(x, y) * df1_dx(x, y) - f1(x, y) * df2_dx(x, y)) / J; // Вычисляем инкремент для y
+    while (1) {
+        double J11 = df1_dx(x,y);
+        double J12 = df1_dy(x,y);
+        double J21 = df2_dx(x, y);
+        double J22 = df2_dy(x, y);
+
+        double detJ = J11 * J22 - J12 * J21;
+
+        dx = (J22 * (-f1(x, y)) - J12 * (-f2(x, y))) / detJ;
+        dy = (J11 * (-f2(x, y)) - J21 * (-f1(x, y))) / detJ;
+
         x += dx;
         y += dy;
-        err = sqrt(pow(dx, 2) + pow(dy, 2)); // Вычисляем погрешность решения
-        n++;
-    } while (err >= eps);
+        counter++;
 
-    cout << "Решение системы нелинейных уравнений: " << endl;
-    cout << "x = " << x << endl;
-    cout << "y = " << y << endl;
-    cout << "Число итераций: " << n << endl;
-    cout << "Погрешность решения: " << err << endl;
+        if (abs(dx) < eps && abs(dy) < eps)
+        {
+            cout << "Решение системы нелинейных уравнений: " << endl;
+            cout << "x = " << x << endl;
+            cout << "y = " << y << endl;
+            cout << "Число итераций: " << counter << endl;
+            return;
+        }
+    }
 }
 
 void iterationMethod() {
-    double x = 1, y = 1; // Начальное приближение
+    double x = 0, y = 1; // Начальное приближение
     double eps = 0.001; // Точность решения
     int n = 0; // Число итераций
     double nx, ny; // Новое приближение

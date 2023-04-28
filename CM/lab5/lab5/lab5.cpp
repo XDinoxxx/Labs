@@ -1,101 +1,118 @@
 ﻿#include <iostream>
-#include <fstream>
 #include <cmath>
 #include <vector>
 
 using namespace std;
 
-const double PI = 3.14159;
-
-// аналитическая функция
-double f(double x)
+// Исходная функция
+double func(double x)
 {
-    return sin(2 * PI * x) / (1 + x);
+    return x * pow(2, x) - 1;
 }
 
-// многочлен Лагранжа
-double lagrange(int n, const vector<double>& x, const vector<double>& y, double x0)
+// Многочлен Лагранжа степени 3
+double lagrange(vector<double> x, vector<double> y, int n, double val)
 {
-    double result = 0.0;
+    double sum = 0;
 
-    // вычисляем многочлен Лагранжа для заданной точки x0
     for (int i = 0; i <= n; i++)
     {
-        double li = 1.0;
+        double prod = y[i];
 
         for (int j = 0; j <= n; j++)
         {
             if (j != i)
             {
-                li *= (x0 - x[j]) / (x[i] - x[j]);
+                prod *= (val - x[j]) / (x[i] - x[j]);
             }
         }
 
-        result += y[i] * li;
+        sum += prod;
     }
 
-    return result;
+    return sum;
 }
 
-// разделенные разности
-double divided_difference(int n, const vector<double>& x, const vector<double>& y, int i, int j)
+// Многочлен Ньютона степени 2
+double newton(vector<double> x, vector<double> y, double xx)
 {
-    if (j == 0)
-    {
-        return y[i];
+    int n = x.size();
+    vector<double> F(n);
+    for (int i = 0; i < n; i++) {
+        F[i] = y[i];
+    }
+    for (int j = 1; j < n; j++) {
+        for (int i = n - 1; i >= j; i--) {
+            F[i] = (F[i] - F[i - 1]) / (x[i] - x[i - j]);
+        }
     }
 
-    return (divided_difference(n, x, y, i + 1, j - 1) - divided_difference(n, x, y, i, j - 1)) / (x[i + j] - x[i]);
-}
-
-// многочлен Ньютона
-double newton(int n, const vector<double>& x, const vector<double>& y, double x0)
-{
-    double result = y[0];
-    double temp = 1.0;
-
-    // вычисляем многочлен Ньютона для заданной точки x0
-    for (int i = 1; i <= n; i++)
-    {
-        temp *= (x0 - x[i - 1]);
-        result += temp * divided_difference(i - 1, x, y, 0, i - 1);
+    // Ищем значение функции в точке 
+    double sum = F[n - 1];
+    for (int i = n - 2; i >= 0; i--) {
+        sum = sum * (xx - x[i]) + F[i];
     }
 
-    return result;
+    return sum;
 }
+
 
 int main()
 {
     setlocale(LC_ALL, "ru");
-    double a = 0.0, b = 2.0, h = 0.1;
-    int n = (b - a) / h + 1;
-    vector<double> x(n), y(n);
-    vector<double> x0 = { 0.25, 1.0, 1.75 };
+    double a = 1; // Начало отрезка
+    double b = 2; // Конец отрезка
+    double h = 0.2; // Шаг
+    double x1 = 1.17; // Первая точка для интерполяции
+    double x2 = 1.34; // Вторая точка для интерполяции
+    double x3 = 1.74; // Третья точка для интерполяции
 
-    // получаем таблицу значений функции на отрезке [a, b] с шагом h
+    int n = (int)round((b - a) / h) + 1; // Количество точек
+    vector<double> x(n), y(n);
+
+    // Заполнение таблицы значений функции
     for (int i = 0; i < n; i++)
     {
-        x[i] = a + i * h;
-        y[i] = f(x[i]);
+        x[i] = a + h * i;
+        y[i] = func(x[i]);
     }
 
-    // вычисляем значения функции в заданных точках с помощью многочлена Лагранжа
-    cout << "Значения функции в точках x:" << endl;
-    for (int i = 0; i < 3; i++)
+    // Вывод таблицы значений функции
+    cout << "Таблица значений функции:" << endl;
+    for (int i = 0; i < n; i++)
     {
-        double y0 = lagrange(4, x, y, x0[i]);
-        cout << "f(" << x0[i] << ") = " << y0 << endl;
+        cout << "x = " << x[i] << "\t y = " << y[i] << endl;
     }
+    cout << endl;
+
+    // Проверка
+    double yaL = lagrange(x, y, 3, a);
+    double yaN = newton(x, y, a);
+    
+    cout << "Значение функции в x = " << a << " (многочлен Лагранжа степени 3): " << yaL << endl;
+    cout << "Значение функции в x = " << a << " (многочлен Ньютона степени 2): " << yaN << endl;
 
     cout << endl;
 
-    // вычисляем значения функции в заданных точках с помощью многочлена Ньютона
-    cout << "Значения функции в точках x:" << endl;
-    for (int i = 0; i < 3; i++)
-    {
-        double y0 = newton(4, x, y, x0[i]);
-        cout << "f(" << x0[i] << ") = " << y0 << endl;
-    }
+    // Вычисление значения функции в первой точке интерполяции
+    double y1L = lagrange(x, y, 3, x1);
+    double y1N = newton(x, y, x1);
+    cout << "Значение функции в x = " << x1 << " (многочлен Лагранжа степени 3): " << y1L << endl;
+    cout << "Значение функции в x = " << x1 << " (многочлен Ньютона степени 2): " << y1N << endl;
+    cout << endl;
+
+    // Вычисление значения функции во второй точке интерполяции
+    double y2L = lagrange(x, y, 3, x2);
+    double y2N = newton(x, y, x2);
+    cout << "Значение функции в x = " << x2 << " (многочлен Лагранжа степени 3): " << y2L << endl;
+    cout << "Значение функции в x = " << x2 << " (многочлен Ньютона степени 2): " << y2N << endl;
+    cout << endl;
+
+    // Вычисление значения функции в третьей точке интерполяции
+    double y3L = lagrange(x, y, 3, x3);
+    double y3N = newton(x, y, x3);
+    cout << "Значение функции в x = " << x3 << " (многочлен Лагранжа степени 3): " << y3L << endl;
+    cout << "Значение функции в x = " << x3 << " (многочлен Ньютона степени 2): " << y3N << endl;
 
     return 0;
 }

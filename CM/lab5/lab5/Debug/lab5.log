@@ -1,3 +1,2 @@
 ﻿  lab5.cpp
-D:\GitHub\Labs\CM\lab5\lab5\lab5.cpp(71,11): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
   lab5.vcxproj -> D:\GitHub\Labs\CM\lab5\Debug\lab5.exe
