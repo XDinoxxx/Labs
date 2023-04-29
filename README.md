@@ -1,5 +1,5 @@
 # Labs
 
-CM - calculation methods
-Web - web programming
-OS - operating systems
+CM - calculation methods <br>
+Web - web programming <br>
+OS - operating systems <br>
