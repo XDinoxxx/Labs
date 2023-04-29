@@ -1,0 +1,207 @@
+body {
+  font-family: "Larsseit";
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  margin: 40px 45px 200px 50px;
+}
+
+.logo {
+  display: flex;
+}
+
+.logo-text {
+  margin-left: 15px;
+  color: #547091;
+}
+
+.main-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+h1 {
+  margin-top: 124px;
+  margin-bottom: -30px;
+  font-size: 72px;
+  flex-wrap: wrap;
+  color: #292929;
+}
+
+h3 {
+  font-size: 32px;
+  color: #4F4F4F;
+  line-height: 34px;
+  letter-spacing: -0.006em;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  margin-top: 4%;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 27px;
+  letter-spacing: -0.006em;
+  text-decoration-line: underline;
+}
+.links a {
+  color: #1ABCFE;
+}
+
+.bottom-header-text {
+  margin-top: 10%;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 22px;
+  letter-spacing: -0.006em;
+  color: #696969;
+}
+
+.main-header-1 {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  flex-direction: row;
+}
+
+.menu {
+  padding: auto;
+}
+.menu a {
+  font-size: 16px;
+  line-height: 16px;
+  color: #22356F;
+  padding: 10px;
+  text-decoration: none;
+}
+.menu a:hover {
+  border-bottom: 2px solid #22356f;
+}
+
+.main-info {
+  display: flex;
+  flex-flow: column;
+  width: 45%;
+  height: 100%;
+  margin-top: 8%;
+  margin-right: 34%;
+}
+
+.thrivetalk-text {
+  font-size: 24px;
+  line-height: 27px;
+  letter-spacing: -0.035em;
+  color: #62D0DF;
+}
+
+h2 {
+  font-size: 48px;
+  margin-top: -3%;
+  line-height: 53px;
+  letter-spacing: -0.035em;
+  color: #22356F;
+}
+
+.help-text {
+  font-size: 19px;
+  line-height: 42px;
+  color: #22356F;
+  width: 70%;
+  margin-bottom: 5%;
+}
+
+.buttons {
+  font-size: 16px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.1em;
+  color: #FFF;
+  margin-bottom: 5%;
+}
+.buttons button {
+  font-size: 16px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.1em;
+  padding: 10px 15px;
+  color: #FAB63E;
+}
+.buttons button:hover {
+  background-color: #FAB63E;
+  color: #FFF;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+.contact {
+  background: #62D0DF;
+  border: none;
+  color: #FFF;
+  border-radius: 50px;
+  font-size: 14px;
+  line-height: 16px;
+  padding: 10px 20px;
+}
+
+.info-thrive {
+  font-size: 36px;
+  line-height: 27px;
+  letter-spacing: -0.006em;
+  margin-top: 10%;
+  margin-left: 10%;
+  padding-right: 6%;
+  color: #FFF;
+}
+.info-thrive h2 {
+  color: #FFF;
+}
+.info-thrive .text-thrive {
+  font-size: 24px;
+  line-height: 35px;
+}
+.info-thrive span {
+  font-weight: 700;
+}
+
+.info-text-3 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 75px;
+}
+.info-text-3 p {
+  max-width: 590px;
+  font-size: 24px;
+  line-height: 34px;
+  letter-spacing: 0.005em;
+  color: #22356F;
+}
+
+.help {
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 0.06em;
+  color: rgba(34, 53, 111, 0.5);
+}
+
+.flex-boxes {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}/*# sourceMappingURL=style.css.map */
