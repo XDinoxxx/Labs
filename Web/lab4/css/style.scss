@@ -191,6 +191,7 @@ button {
     display: flex;
     justify-content: center;
     margin-bottom: 75px;
+    margin-top: 5%;
 
     p {
         max-width: 590px;
@@ -206,12 +207,235 @@ button {
     line-height: 19px;
     text-align: center;
     letter-spacing: 0.06em;
+    margin-bottom: 2%;
     color: rgba(34, 53, 111, 0.5);
 }
 
 .flex-boxes {
     display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 120px;
+
+    .box-1 {
+        background: #ffe2de;
+    }
+
+    .box-2 {
+        background: #c4e769;
+    }
+
+    .box-3 {
+        background: #62d0df;
+    }
+
+    .box-4 {
+        background: #0052c1;
+    }
+
+    div {
+        width: 100%;
+        height: 305px;
+        display: flex;
+        justify-content: center;
+    }
+
+
 }
 
+li {
+    color: #e9b730;
+    padding: 5px;
+    font-size: 32px;
+
+    .box-text {
+        font-size: 32px;
+        line-height: 34px;
+        letter-spacing: -0.006em;
+        padding-top: 10px;
+        border-top: 1px solid #FFF;
+        color: #FFF;
+
+    }
+}
+
+
+
+.flex-boxes-2 {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 120px;
+
+    .box-1 {
+        background: #22356F;
+    }
+
+    .box-2 {
+        background: #0052C1;
+    }
+
+    .box-3 {
+        background-image: url(../img/joanna-kosinska-340748.jpg);
+    }
+
+    .box-4 {
+        background: #62D0DF;
+    }
+
+    .box-5 {
+        background: #DEE1FF;
+    }
+
+    .box-6 {
+        background: #8F00FF;
+    }
+
+    div {
+        display: flex;
+        justify-content: center;
+        width: 421px;
+        height: 426px;
+    }
+
+    .box-text {
+        margin-top: 50px;
+        padding-right: 45px;
+        margin-right: 100px;
+    }
+
+}
+
+.flex-text-boxes {
+    display: flex;
+    flex-wrap: wrap;
+
+    h2 {
+        font-size: 28px;
+        line-height: 33px;
+        letter-spacing: -0.03em;
+        color: #22356F;
+        padding-left: 85px;
+    }
+
+    p {
+        font-family: 'Larsseit';
+        font-size: 16px;
+        line-height: 25px;
+        letter-spacing: -0.03em;
+        color: rgba(34, 53, 111, 0.5);
+        padding-left: 85px;
+    }
+
+    .flex-text-box {
+        width: 33.3%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        vertical-align: middle;
+        margin-top: 20px;
+        margin-bottom: 50px;
+    }
+
+}
+
+.main-back-6-text {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 5%;
+    margin-left: 10%;
+
+    h4 {
+        font-size: 16px;
+        line-height: 12px;
+        letter-spacing: 0.06em;
+        color: #22356F;
+        margin-bottom: 30%;
+    }
+
+    p {
+        font-size: 36px;
+        line-height: 53px;
+        letter-spacing: -0.01em;
+        color: #22356F;
+        margin-bottom: 27%;
+    }
+
+    .thrivetalk-text-2 {
+        color: #6CD3E1;
+    }
+}
+
+.main-back-7-text {
+    background: #22356F;
+    display: flex;
+    flex-direction: column;
+
+    p {
+        font-size: 16px;
+        line-height: 12px;
+        letter-spacing: 0.06em;
+        color: #FFF;
+        margin-top: 18%;
+        margin-bottom: 27%;
+    }
+
+    h2 {
+        font-size: 64px;
+        line-height: 94px;
+        letter-spacing: -0.01em;
+        color: #FFF;
+    }
+
+    h3 {
+        font-size: 36px;
+        line-height: 53px;
+        letter-spacing: -0.005em;
+        color: #FFF;
+    }
+
+    button {
+        color: #62D0DF;
+    }
+
+    button:hover {
+        background-color: #22356F;
+        color: #FFf;
+    }
+
+    p,
+    h2,
+    h3,
+    button {
+        padding-left: 20%;
+        padding-right: 10%;
+    }
+}
+
+.footer-flex {
+    display: flex;
+    flex-direction: row;
+
+    h6 {
+        font-size: 14px;
+        line-height: 11px;
+        letter-spacing: -0.006em;
+        color: #22356F;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 23px;
+        letter-spacing: -0.006em;
+        color: rgba(34, 53, 111, 0.5);
+    }
+
+    div{
+        padding-left: 3%;
+        margin-top: 10%;
+        width: 240px;
+    }
+
+    a{
+        text-decoration: none;
+    }
+}

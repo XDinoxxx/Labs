@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .main-back-1 {
   background-image: url(../img/background.jpg);
   background-size: cover;
@@ -19,4 +20,53 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.main-back-4 {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-back-5 {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-back-6 {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.main-back-7 {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: -5px;
+}
+
+.footer-back-1 {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-top: -1px;
+  margin-bottom: -5px;
+}
+
+.footer-back-2 {
+  padding-top: 7px;
+  padding-bottom: 3px;
+  background: #62D0DF;
+}
+.footer-back-2 p {
+  color: #FFF;
+  padding-left: 10%;
+}
+.footer-back-2 p::before {
+  padding-right: 10px;
+  content: "©";
 }/*# sourceMappingURL=main.css.map */
