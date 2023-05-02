@@ -1,0 +1,39 @@
+#include <iostream>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+#include <unistd.h>
+#include <cstring>
+
+using namespace std;
+
+const int SHM_SIZE = 1024; // Размер разделяемой памяти
+
+int main() {
+    key_t key = ftok("keyfile.txt", 'a'); // Создание ключа для разделяемой памяти
+    int shmid = shmget(key, SHM_SIZE, 0666 | IPC_CREAT); // Создание разделяемой памяти
+    char *shared_memory = (char*) shmat(shmid, NULL, 0); // Присоединение разделяемой памяти к процессу
+
+    // Процесс-писатель
+    if (fork() == 0) {ftok
+        while (true) {
+            cout << "Введи строку:_ ";
+            string str;
+            getline(cin, str);
+            strcpy(shared_memory, str.c_str()); // Запись строки в разделяемую память
+            sleep(1); // Задержка
+        }
+    }
+
+    // Процесс-читатель
+    else {
+        while (true) {
+            cout << "Прочитано из разделяемой памяти: " << shared_memory << endl; // Чтение строки из разделяемой памяти
+            sleep(1); // Задержка
+        }
+    }
+
+    shmdt(shared_memory); // Отсоединение разделяемой памяти от процесса
+    shmctl(shmid, IPC_RMID, NULL); // Удаление разделяемой памяти
+
+    return 0;
+}

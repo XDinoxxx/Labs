@@ -1,0 +1,93 @@
+Для создания FIFO необходимо использовать системный вызов mkfifo. Для работы с FIFO используются стандартные функции open, read и write.
+
+Пример кода приложения:
+
+```
+#include <iostream>
+#include <string>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/stat.h>
+
+using namespace std;
+
+const string PIPE_NAME = "/tmp/myfifo";
+
+int main() {
+  cout << "Waiting for connection..." << endl;
+
+  int fd = open(PIPE_NAME.c_str(), O_WRONLY);
+  if (fd == -1) {
+    cerr << "Error opening FIFO" << endl;
+    exit(1);
+  }ые
+
+  cout << "Connected!" << endl;
+
+  string message;
+  while (true) {
+    cout << "Enter message: ";
+    getline(cin, message);
+
+    if (message.empty()) {
+      break;
+    }
+
+    write(fd, message.c_str(), message.length());
+  }
+
+  cout << "Closing connection..." << endl;
+
+  close(fd);
+
+  return 0;
+}
+```
+
+Данный код открывает FIFO на запись и ожидает ввода сообщений. Введенные сообщения записываются в FIFO.
+
+Пример кода второй копии приложения:
+
+```
+#include <iostream>
+#include <string>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/stat.h>
+
+using namespace std;
+
+const string PIPE_NAME = "/tmp/myfifo";
+
+int main() {
+  cout << "Waiting for connection..." << endl;
+
+  int fd = open(PIPE_NAME.c_str(), O_RDONLY);
+  if (fd == -1) {
+    cerr << "Error opening FIFO" << endl;
+    exit(1);
+  }
+
+  cout << "Connected!" << endl;
+
+  char buffer[1024];
+  while (true) {
+    int bytes = read(fd, buffer, sizeof(buffer));
+    if (bytes <= 0) {
+      break;
+    }
+
+    cout << "Received message: " << string(buffer, bytes) << endl;
+  }
+
+  cout << "Closing connection..." << endl;
+
+  close(fd);
+
+  return 0;
+}
+```
+
+Данный код открывает FIFO на чтение и ожидает получения сообщений. При получении сообщения выводится на экран. Программа завершается при закрытии соединения.
+
+Обе копии приложения могут быть запущены из разных консолей, обмениваясь сообщениями через FIFO.
