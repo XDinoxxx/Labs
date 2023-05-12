@@ -43,6 +43,7 @@ double RectanglesMethod(double a, double b, int n) {
         double x = a + i * h; // левая граница прямоугольника
         double y = f(x); // вычисление функции в левой границе
         sum += y * h; // добавляем площадь прямоугольника в сумму
+        cout << x << "\t" << y << "\t" << sum << endl;
     }
 
     return sum;
@@ -84,7 +85,7 @@ double SimpsonMethod(double a, double b, int n) {
 int main() {
     setlocale(LC_ALL, "ru");
     double a = 0.2, b = 1; // границы интегрирования
-    int nR = 164, nT = 10, nS = 10; // количество разбиений
+    int nR = 200, nT = 10, nS = 10; // количество разбиений
 
     double rM = RectanglesMethod(a, b, nR);
     double tM = TrapezoidalMethod(a, b, nT);

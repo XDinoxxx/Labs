@@ -17,11 +17,11 @@ double min(double a, double b) {
 }
 
 double f(double value) {
-    return pow(0.5, value) + 1 - pow((value - 2), 2);
+    return pow(3, value) + 2 * value - 5;
 }
 
 double f1(double value) {
-    return 2 * pow(value,3) - 9 * pow(value,2) - 60 * value + 1;
+    return cos(value + 0.3) - pow(value, 2);
 }
 
 double dihotomia(double a, double b, double eps) {
@@ -42,30 +42,13 @@ double dihotomia(double a, double b, double eps) {
     return x;
 }
 
-double dihotomia1(double a, double b, double eps) {
-    double x = (a + b) / 2;
-    while (abs(b - a) > 2 * eps) {
-        if (f1(a) * f1(x) < 0) {
-            b = x;
-            x = (a + b) / 2;
-        }
-        else {
-            if (f1(b) * f1(x) < 0) {
-                a = x;
-                x = (a + b) / 2;
-            }
-        }
-    }
-    return x;
-}
+
 
 
 int main()
 {
     int a = 0;
     int b = 2;
-    int c = -1;
-    int d = 3;
     double eps = 0.01;
 
     copy(ls.begin(), ls.end(), ostream_iterator<double>(cout, " "));
@@ -74,6 +57,6 @@ int main()
     cout << endl;
 
     cout << dihotomia(a, b, eps) << endl;
-    cout << dihotomia1(c, d, eps);
+
 }
 
