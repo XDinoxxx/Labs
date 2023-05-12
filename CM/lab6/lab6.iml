@@ -7,6 +7,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="jama-1.0.3" level="project" />
+    <orderEntry type="library" name="JMathPlot-1.0.1" level="project" />
   </component>
 </module>

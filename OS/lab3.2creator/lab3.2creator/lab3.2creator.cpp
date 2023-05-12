@@ -20,7 +20,7 @@ void writeFile(HANDLE file) {
 
 int main() {
     HANDLE soundThread = CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)playSound, NULL, 0, NULL);
-    HANDLE file = CreateFile((LPCWSTR)L"D:\\Labs\\OS\\lab3.2user\\lab3.2user\\output.txt", GENERIC_READ | GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+    HANDLE file = CreateFile((LPCWSTR)L"D:\\GitHub\\Labs\\OS\\lab3.2user\\lab3.2user\\output.txt", GENERIC_READ | GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
     writeFile(file);
     DuplicateHandle(GetCurrentProcess(), file, GetCurrentProcess(), &file, 0, FALSE, DUPLICATE_SAME_ACCESS);
     CloseHandle(file);
