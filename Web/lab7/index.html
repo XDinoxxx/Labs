@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Крестики-нолики</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div>
+      <button id="playButton">Играть</button>
+      <button id="statsButton">Статистика</button>
+    </div>
+    
+    <div id="playScreen" style="display: none;">
+      <h2>Введите никнеймы игроков:</h2>
+      <div>
+        <label for="player1Name">Игрок 1:</label>
+        <input type="text" id="player1Name">
+      </div>
+      <div>
+        <label for="player2Name">Игрок 2:</label>
+        <input type="text" id="player2Name">
+      </div>
+      <button id="startGameButton">Начать игру</button>
+    </div>
+    
+    <div id="gameScreen" style="display: none;">
+      <h2 id="currentPlayer"></h2>
+      <p>Ходы игроков:</p>
+      <ul id="movesList"></ul>
+      <div class="board">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+      </div>
+    </div>
+    
+    <div id="resultScreen" style="display: none;">
+      <h2 id="winnerMessage"></h2>
+      <button id="returnToStartButton">Вернуться на стартовый экран</button>
+    </div>
+    
+    <div id="statsScreen" style="display: none;">
+      <h2>Статистика игроков:</h2>
+      <p id="player1Stats"></p>
+      <p id="player2Stats"></p>
+      <button id="returnToStartButton2">Вернуться на стартовый экран</button>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
