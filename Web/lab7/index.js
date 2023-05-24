@@ -10,10 +10,12 @@ const cells = document.querySelectorAll('.cell');
 const resultScreen = document.getElementById('resultScreen');
 const winnerMessage = document.getElementById('winnerMessage');
 const returnToStartButton = document.getElementById('returnToStartButton');
+const restartButton = document.getElementById('restart');
 const statsScreen = document.getElementById('statsScreen');
 const player1Stats = document.getElementById('player1Stats');
 const player2Stats = document.getElementById('player2Stats');
 const returnToStartButton2 = document.getElementById('returnToStartButton2');
+const draw = document.getElementById('draw');
 
 // добавляем обработчики событий на кнопки
 playButton.addEventListener('click', showPlayScreen);
@@ -21,10 +23,26 @@ statsButton.addEventListener('click', showStatsScreen);
 startGameButton.addEventListener('click', startGame);
 returnToStartButton.addEventListener('click', showStartScreen);
 returnToStartButton2.addEventListener('click', showStartScreen);
+restartButton.addEventListener('click', clearField);
 
 // функция для отображения экрана с формой для ввода никнеймов
 function showPlayScreen() {
   playScreen.style.display = 'block';
+}
+
+// функция очистки поля
+function clearField() { 
+  var cells = document.querySelectorAll('.cell'); 
+  cells.forEach(function(cell) {
+    cell.textContent = '';
+  }); 
+
+  var ul = document.querySelectorAll("ul"); 
+  ul.forEach(function(item) {
+    item.textContent = '';
+  }); 
+
+  startGame(); 
 }
 
 // функция для отображения экрана со статистикой игроков
@@ -37,80 +55,104 @@ function startGame() {
   // получаем имена игроков
   const player1Name = document.getElementById('player1Name').value;
   const player2Name = document.getElementById('player2Name').value;
-  
+
   // проверяем наличие ввода
   if (player1Name === '' || player2Name === '') {
     alert('Введите имена игроков!');
     return;
   }
-  
+
   // скрываем экран с формой
   playScreen.style.display = 'none';
-  
+
   // отображаем экран с игрой
   gameScreen.style.display = 'block';
-  
+
   // выбираем случайным образом, кто ходит крестиками, а кто ноликами
-  const startingPlayer = Math.round(Math.random()) + 1;
-  let currentPlayerIndex = startingPlayer;
-  
-  // ставим обработчик события на игровое поле
-  board.addEventListener('click', makeMove);
-  
-  // выводим информацию о текущем игроке
-  currentPlayer.textContent = `${currentPlayerIndex === 1 ? player1Name : player2Name} (${currentPlayerIndex === 1 ? 'O' : 'X'}) ходит первым`;
-  
-  // создаем массив для хранения ходов
-  const moves = [];
-  let currentMoveIndex = 0;
-  
+  const startingPlayer = Math.floor(Math.random() * 2) + 1; // случайный выбор первого игрока
+  let player1Symbol; 
+  let player2Symbol; 
+
+
+  if(startingPlayer === 1){ 
+    player1Symbol = 'X'; 
+    player2Symbol = 'O'; 
+  } 
+  else{ 
+    player1Symbol = 'O'; 
+    player2Symbol = 'X'; 
+  } 
+   
+  let currentPlayerIndex = startingPlayer; 
+ 
+  // ставим обработчик события на игровое поле 
+  board.addEventListener('click', makeMove); 
+ 
+  // вывод информации о текущем игроке 
+  currentPlayer.textContent = `${currentPlayerIndex === 1 ? player1Name : player2Name} (${currentPlayerIndex === 1 ? player1Symbol : player2Symbol}) ходит первым`; 
+  const moves = []; 
+
+
   // функция для обработки хода
   function makeMove(event) {
     // проверяем, что был клик по пустой ячейке
     if (event.target.classList.contains('cell') && !event.target.textContent) {
       // добавляем в массив ходов
-      moves.push({player: currentPlayerIndex, cell: event.target});
-      
+      moves.push({ player: currentPlayerIndex, cell: event.target });
+
       // добавляем в список ходов
       const moveItem = document.createElement('li');
-      moveItem.textContent = `${currentPlayerIndex === 1 ? player1Name : player2Name} (${currentPlayerIndex === 1 ? 'O' : 'X'}) в ячейку ${Array.from(cells).indexOf(event.target) + 1}`;
+      moveItem.textContent = `${currentPlayerIndex === 1 ? player1Name : player2Name} (${currentPlayerIndex === 1 ? 'X' : '0'}) в ячейку ${Array.from(cells).indexOf(event.target) + 1}`;
       movesList.appendChild(moveItem);
-      
+
       // записываем ход в ячейку
-      event.target.textContent = currentPlayerIndex === 1 ? 'O' : 'X';
-      
+      if(startingPlayer === 1){ 
+        event.target.textContent = 'X';  
+      } 
+      else{ 
+        event.target.textContent = 'O'; 
+      } 
+
       // проверяем условия победы или ничьи
       if (checkWin() || checkTie()) {
         // в случае победы или ничьи убираем обработчик события с игрового поля
         board.removeEventListener('click', makeMove);
-        
+
         // выводим результат игры
         winnerMessage.textContent = checkWin() ? `${currentPlayerIndex === 1 ? player1Name : player2Name} (${currentPlayerIndex === 1 ? 'X' : 'O'}) выиграл игру!` : 'Ничья!';
         resultScreen.style.display = 'block';
-        
+
         // добавляем статистику игрокам
+
+        document.getElementById('player1name').innerHTML = document.getElementById('player1Name').value;
+        document.getElementById('player2name').innerHTML = document.getElementById('player2Name').value;
+
         if (checkWin()) {
           if (currentPlayerIndex === 1) {
-            player1Stats.textContent = `${player1Name}: ${parseInt(player1Stats.textContent) + 1} побед(ы)`;
-            player2Stats.textContent = `${player2Name}: ${player2Stats.textContent} поражен(ия)`;
+            let text = player1Stats.innerText;
+            text = Number(text) + 1;
+            player1Stats.innerText = text;
           } else {
-            player1Stats.textContent = `${player1Name}: ${player1Stats.textContent} поражен(ия)`;
-            player2Stats.textContent = `${player2Name}: ${parseInt(player2Stats.textContent) + 1} побед(ы)`;
+            let text1 = player2Stats.innerText;
+            text1 = Number(text1) + 1;
+            player2Stats.innerText = text1;
           }
-        } else {
-          player1Stats.textContent = `${player1Name}: ${player1Stats.textContent} ничьих`;
-          player2Stats.textContent = `${player2Name}: ${player2Stats.textContent} ничьих`;
         }
-        
+
+        if (checkTie()) {
+          let tx = draw.innerText;
+          tx = Number(tx) + 1;
+          draw.innerText = tx;
+        }
         return;
       }
-      
+
       // передаем ход следующему игроку
       currentPlayerIndex = currentPlayerIndex === 1 ? 2 : 1;
       currentPlayer.textContent = `${currentPlayerIndex === 1 ? player1Name : player2Name} (${currentPlayerIndex === 1 ? 'X' : 'O'})`;
     }
   }
-  
+
   // функция для проверки победы
   function checkWin() {
     const winningLines = [
@@ -126,14 +168,14 @@ function startGame() {
       [0, 4, 8],
       [2, 4, 6]
     ];
-// проверяем, есть ли три одинаковых символа
-return winningLines.some(line => {
+    // проверяем, есть ли три одинаковых символа
+    return winningLines.some(line => {
       return line.every(cellIndex => {
         return cells[cellIndex].textContent === (currentPlayerIndex === 1 ? 'X' : 'O');
       });
     });
   }
-  
+
   // функция для проверки ничьей
   function checkTie() {
     // проверяем, что все ячейки заполнены
