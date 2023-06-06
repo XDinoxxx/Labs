@@ -34,12 +34,7 @@ var calculator = {
   // смена знака текущего числа
   negate: function () {
     if (this.currentValue != "0") {
-      if (this.currentValue[0] == "-") {
-        this.currentValue = this.currentValue.substr(1);
-      }
-      else {
-        this.currentValue = "-" + this.currentValue;
-      }
+      this.currentValue *= -1;
       this.updateDisplay();
     }
   },
