@@ -1,0 +1,6 @@
+﻿  lab2.cpp
+D:\Labs\SP\lab2\lab2\lab2.cpp(17,27): warning C4129: P: неизвестная escape-последовательность
+D:\Labs\SP\lab2\lab2\lab2.cpp(17,27): warning C4129: V: неизвестная escape-последовательность
+D:\Labs\SP\lab2\lab2\lab2.cpp(17,27): warning C4129: M: неизвестная escape-последовательность
+D:\Labs\SP\lab2\lab2\lab2.cpp(17,27): warning C4129: C: неизвестная escape-последовательность
+  lab2.vcxproj -> D:\Labs\SP\lab2\x64\Debug\lab2.exe

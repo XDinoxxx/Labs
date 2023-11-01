@@ -1,0 +1,10 @@
+﻿  lab2.cpp
+D:\Labs\SP\lab2\lab2\lab2.cpp(17,27): warning C4129: P: неизвестная escape-последовательность
+D:\Labs\SP\lab2\lab2\lab2.cpp(17,27): warning C4129: V: неизвестная escape-последовательность
+D:\Labs\SP\lab2\lab2\lab2.cpp(17,27): warning C4129: M: неизвестная escape-последовательность
+D:\Labs\SP\lab2\lab2\lab2.cpp(17,27): warning C4129: C: неизвестная escape-последовательность
+  Создание кода
+  Previous IPDB not found, fall back to full compilation.
+  All 11 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Создание кода завершено
+  lab2.vcxproj -> D:\Labs\SP\lab2\x64\Release\lab2.exe
